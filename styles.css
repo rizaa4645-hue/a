@@ -1,0 +1,174 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#111;
+    color:white;
+    min-height:100vh;
+}
+
+.container{
+    display:flex;
+    gap:24px;
+    padding:24px;
+    align-items:flex-start;
+}
+
+.controls{
+    width:320px;
+    background:#1b1b1b;
+    border-radius:14px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    flex-shrink:0;
+}
+
+.controls h1{
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.group{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.group label{
+    font-size:14px;
+    font-weight:bold;
+}
+
+input[type="file"]{
+    background:#282828;
+    color:white;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+}
+
+input[type="number"]{
+    background:#282828;
+    color:white;
+    border:none;
+    outline:none;
+    padding:10px;
+    border-radius:8px;
+    width:100%;
+}
+
+input[type="range"]{
+    width:100%;
+}
+
+.row{
+    display:flex;
+    gap:12px;
+}
+
+.row .group{
+    flex:1;
+}
+
+#scaleValue{
+    font-size:13px;
+    color:#aaa;
+}
+
+.buttons{
+    display:flex;
+    gap:10px;
+    margin-top:8px;
+}
+
+button{
+    flex:1;
+    border:none;
+    border-radius:10px;
+    padding:12px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.2s;
+}
+
+#download{
+    background:#4d6bff;
+    color:white;
+}
+
+#download:hover{
+    background:#617cff;
+}
+
+#reset{
+    background:#2e2e2e;
+    color:white;
+}
+
+#reset:hover{
+    background:#404040;
+}
+
+.previewContainer{
+    flex:1;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#preview{
+    width:100%;
+    max-width:900px;
+
+    aspect-ratio:1/1;
+
+    background:#202020;
+
+    border-radius:14px;
+
+    box-shadow:
+        0 0 30px rgba(0,0,0,.4);
+}
+
+/* Tablet */
+
+@media (max-width:1000px){
+
+    .container{
+
+        flex-direction:column;
+
+    }
+
+    .controls{
+
+        width:100%;
+
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width:650px){
+
+    .buttons{
+
+        flex-direction:column;
+
+    }
+
+    .row{
+
+        flex-direction:column;
+
+    }
+
+}
