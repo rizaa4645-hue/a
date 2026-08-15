@@ -1,174 +1,350 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-    background:#111;
-    color:white;
-    min-height:100vh;
+body {
+    background: #111;
+    color: white;
+    min-height: 100vh;
 }
 
-.container{
-    display:flex;
-    gap:24px;
-    padding:24px;
-    align-items:flex-start;
+.container {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    align-items: flex-start;
 }
 
-.controls{
-    width:320px;
-    background:#1b1b1b;
-    border-radius:14px;
-    padding:20px;
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-    flex-shrink:0;
+/* =========================
+   CONTROLS
+========================= */
+
+.controls {
+    width: 320px;
+    background: #1b1b1b;
+    border-radius: 14px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    flex-shrink: 0;
 }
 
-.controls h1{
-    font-size:24px;
-    margin-bottom:10px;
+.controls h1 {
+    font-size: 24px;
+    margin-bottom: 2px;
 }
 
-.group{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding-top: 4px;
 }
 
-.group label{
-    font-size:14px;
-    font-weight:bold;
+.section h2 {
+    font-size: 16px;
+    color: #ddd;
 }
 
-input[type="file"]{
-    background:#282828;
-    color:white;
-    padding:10px;
-    border:none;
-    border-radius:8px;
+/* =========================
+   GROUP
+========================= */
+
+.group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-input[type="number"]{
-    background:#282828;
-    color:white;
-    border:none;
-    outline:none;
-    padding:10px;
-    border-radius:8px;
-    width:100%;
+.group label,
+.shadow-toggle-row label {
+    font-size: 14px;
+    font-weight: bold;
 }
 
-input[type="range"]{
-    width:100%;
+/* =========================
+   FILE INPUT
+========================= */
+
+input[type="file"] {
+    width: 100%;
+
+    background: #282828;
+    color: white;
+
+    padding: 10px;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
 }
 
-.row{
-    display:flex;
-    gap:12px;
+/* =========================
+   NUMBER INPUT
+========================= */
+
+input[type="number"] {
+    width: 100%;
+
+    background: #282828;
+    color: white;
+
+    border: none;
+    outline: none;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
 }
 
-.row .group{
-    flex:1;
+input[type="number"]:focus {
+    outline: 1px solid #555;
 }
 
-#scaleValue{
-    font-size:13px;
-    color:#aaa;
+/* =========================
+   ROW
+========================= */
+
+.row {
+    display: flex;
+    gap: 12px;
 }
 
-.buttons{
-    display:flex;
-    gap:10px;
-    margin-top:8px;
+.row .group {
+    flex: 1;
 }
 
-button{
-    flex:1;
-    border:none;
-    border-radius:10px;
-    padding:12px;
-    cursor:pointer;
-    font-weight:bold;
-    transition:.2s;
+/* =========================
+   RANGE
+========================= */
+
+.range-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-#download{
-    background:#4d6bff;
-    color:white;
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
 }
 
-#download:hover{
-    background:#617cff;
+.range-row span {
+    min-width: 45px;
+    text-align: right;
+
+    color: #aaa;
+    font-size: 13px;
 }
 
-#reset{
-    background:#2e2e2e;
-    color:white;
+/* =========================
+   SHADOW TOGGLE ROW
+========================= */
+
+.shadow-toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-#reset:hover{
-    background:#404040;
+/* =========================
+   TOGGLE SWITCH
+========================= */
+
+.switch {
+    position: relative;
+
+    width: 50px;
+    height: 28px;
+
+    display: block;
+
+    cursor: pointer;
 }
 
-.previewContainer{
-    flex:1;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.switch input {
+    display: none;
 }
 
-#preview{
-    width:100%;
-    max-width:900px;
+.slider {
+    position: absolute;
 
-    aspect-ratio:1/1;
+    inset: 0;
 
-    background:#202020;
+    background: #333;
 
-    border-radius:14px;
+    border-radius: 30px;
+
+    transition: 0.2s;
+}
+
+.slider::before {
+    content: "";
+
+    position: absolute;
+
+    width: 22px;
+    height: 22px;
+
+    left: 3px;
+    top: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: 0.2s;
+}
+
+.switch input:checked + .slider {
+    background: #4d6bff;
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(22px);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons {
+    display: flex;
+    gap: 10px;
+
+    margin-top: 4px;
+}
+
+button {
+    flex: 1;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 12px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+#download {
+    background: #4d6bff;
+    color: white;
+}
+
+#download:hover {
+    background: #617cff;
+}
+
+#reset {
+    background: #2e2e2e;
+    color: white;
+}
+
+#reset:hover {
+    background: #404040;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* =========================
+   PREVIEW
+========================= */
+
+.previewContainer {
+    flex: 1;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-width: 0;
+}
+
+#preview {
+    display: block;
+
+    width: min(100%, 900px);
+
+    aspect-ratio: 1 / 1;
+
+    background: #202020;
+
+    border-radius: 14px;
 
     box-shadow:
-        0 0 30px rgba(0,0,0,.4);
+        0 0 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Tablet */
+/* =========================
+   TABLET
+========================= */
 
-@media (max-width:1000px){
+@media (max-width: 1000px) {
 
-    .container{
-
-        flex-direction:column;
-
+    .container {
+        flex-direction: column;
     }
 
-    .controls{
-
-        width:100%;
-
+    .controls {
+        width: 100%;
     }
 
+    .previewContainer {
+        width: 100%;
+    }
+
+    #preview {
+        width: min(100%, 700px);
+    }
 }
 
-/* Mobile */
+/* =========================
+   MOBILE
+========================= */
 
-@media (max-width:650px){
+@media (max-width: 650px) {
 
-    .buttons{
-
-        flex-direction:column;
-
+    .container {
+        padding: 14px;
+        gap: 16px;
     }
 
-    .row{
-
-        flex-direction:column;
-
+    .controls {
+        padding: 16px;
+        border-radius: 12px;
     }
 
+    .controls h1 {
+        font-size: 20px;
+    }
+
+    .row {
+        flex-direction: row;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    #preview {
+        width: 100%;
+        border-radius: 10px;
+    }
 }

@@ -3,97 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Velvet Product Maker</title>
 
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <div class="controls">
+        <aside class="controls">
 
-        <h1>Velvet Product Maker</h1>
+            <h1>Velvet Product Maker</h1>
 
-        <div class="group">
-            <label>Background</label>
-            <input
-                type="file"
-                id="backgroundInput"
-                accept="image/*">
-        </div>
-
-        <div class="group">
-            <label>Secondary Image</label>
-            <input
-                type="file"
-                id="secondaryInput"
-                accept="image/*">
-        </div>
-
-        <div class="group">
-            <label>Scale</label>
-
-            <input
-                type="range"
-                id="scale"
-                min="0.1"
-                max="3"
-                value="1"
-                step="0.01">
-
-            <span id="scaleValue">1.00</span>
-        </div>
-
-        <div class="row">
-
+            <!-- Background -->
             <div class="group">
-                <label>X</label>
+                <label for="backgroundInput">
+                    Background
+                </label>
 
                 <input
-                    type="number"
-                    id="x"
-                    value="0">
+                    type="file"
+                    id="backgroundInput"
+                    accept="image/*"
+                >
             </div>
 
-            <div class="group">
-                <label>Y</label>
 
-                <input
-                    type="number"
-                    id="y"
-                    value="0">
+            <!-- Secondary Image -->
+            <div class="section">
+
+                <h2>Secondary Image</h2>
+
+                <div class="group">
+
+                    <label for="secondaryInput">
+                        Image
+                    </label>
+
+                    <input
+                        type="file"
+                        id="secondaryInput"
+                        accept="image/*"
+                    >
+
+                </div>
+
+
+                <!-- Secondary Scale -->
+                <div class="group">
+
+                    <label for="scale">
+                        Scale
+                    </label>
+
+                    <div class="range-row">
+
+                        <input
+                            type="range"
+                            id="scale"
+                            min="0.1"
+                            max="3"
+                            value="1"
+                            step="0.01"
+                        >
+
+                        <span id="scaleValue">
+                            1.00
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Secondary Position -->
+                <div class="row">
+
+                    <div class="group">
+
+                        <label for="x">
+                            X
+                        </label>
+
+                        <input
+                            type="number"
+                            id="x"
+                            value="0"
+                        >
+
+                    </div>
+
+
+                    <div class="group">
+
+                        <label for="y">
+                            Y
+                        </label>
+
+                        <input
+                            type="number"
+                            id="y"
+                            value="0"
+                        >
+
+                    </div>
+
+                </div>
+
             </div>
 
-        </div>
 
-        <div class="buttons">
+            <!-- Shadow -->
+            <div class="section">
 
-            <button id="reset">
-                Reset
-            </button>
+                <h2>Shadow</h2>
 
-            <button id="download">
-                Download PNG
-            </button>
+                <!-- Shadow Toggle -->
+                <div class="shadow-toggle-row">
 
-        </div>
+                    <label>
+                        Enable Shadow
+                    </label>
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="shadow"
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- Shadow Opacity -->
+                <div class="group">
+
+                    <label for="shadowOpacity">
+                        Opacity
+                    </label>
+
+                    <div class="range-row">
+
+                        <input
+                            type="range"
+                            id="shadowOpacity"
+                            min="0"
+                            max="100"
+                            value="60"
+                            step="1"
+                        >
+
+                        <span id="shadowOpacityValue">
+                            60%
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Shadow Position -->
+                <div class="row">
+
+                    <div class="group">
+
+                        <label for="shadowX">
+                            X
+                        </label>
+
+                        <input
+                            type="number"
+                            id="shadowX"
+                            value="20"
+                        >
+
+                    </div>
+
+
+                    <div class="group">
+
+                        <label for="shadowY">
+                            Y
+                        </label>
+
+                        <input
+                            type="number"
+                            id="shadowY"
+                            value="20"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Shadow Blur -->
+                <div class="group">
+
+                    <label for="shadowBlur">
+                        Blur
+                    </label>
+
+                    <div class="range-row">
+
+                        <input
+                            type="range"
+                            id="shadowBlur"
+                            min="0"
+                            max="100"
+                            value="30"
+                            step="1"
+                        >
+
+                        <span id="shadowBlurValue">
+                            30
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Buttons -->
+            <div class="buttons">
+
+                <button
+                    id="reset"
+                    type="button"
+                >
+                    Reset
+                </button>
+
+                <button
+                    id="download"
+                    type="button"
+                >
+                    Download PNG
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Preview -->
+        <main class="previewContainer">
+
+            <canvas
+                id="preview"
+                width="1200"
+                height="1200"
+            ></canvas>
+
+        </main>
 
     </div>
 
-    <div class="previewContainer">
 
-        <canvas
-    id="preview"
-    width="1200"
-    height="1200">
-        </canvas>
-
-    </div>
-
-</div>
-
-<script src="main.js"></script>
+    <script src="main.js"></script>
 
 </body>
 </html>
